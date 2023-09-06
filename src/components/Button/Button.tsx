@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react'
 import QRCode from "react-qr-code";
 
 export interface ButtonProps {
     webHook: string;
+    isProofsReceived?: boolean;
     label?: string;
 }
 
@@ -13,21 +14,27 @@ const ReclaimButton = (props: ButtonProps) => {
         "type": "import",
         "webhook": props.webHook
     })
+
+    useEffect(() => {
+        if (props.isProofsReceived) {
+            onClose();
+        }
+    }, [props.isProofsReceived, onClose]);
+
     return (
         <>
-        <Button onClick={onOpen}>{props.label ? props.label : 'Import from Reclaim app'}</Button>
+            <Button onClick={onOpen}>{props.label ? props.label : 'Import from Reclaim app'}</Button>
 
-        // the modal should show qr code
-        <Modal isOpen={isOpen} onClose={onClose}>
-            <ModalOverlay />
-            <ModalContent>
-                <ModalHeader>Modal Title</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                    <QRCode value={qrValue} />
-                </ModalBody>
-            </ModalContent>
-        </Modal>
+            <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Scan QR to import proofs from Reclaim app</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                        <QRCode value={qrValue} />
+                    </ModalBody>
+                </ModalContent>
+            </Modal>
         </>
     );
 };
