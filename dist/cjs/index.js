@@ -10,15 +10,17 @@ var ReclaimButton = function (props) {
         "type": "import",
         "webhook": props.webHook
     });
+    React.useEffect(function () {
+        if (props.isProofsReceived) {
+            onClose();
+        }
+    }, [props.isProofsReceived, onClose]);
     return (React.createElement(React.Fragment, null,
-        React.createElement(react.Button, { onClick: onOpen }, props.label ? props.label : 'Import from Reclaim app')
-    // the modal should show qr code
-    ,
-        "// the modal should show qr code",
+        React.createElement(react.Button, { onClick: onOpen }, props.label ? props.label : 'Import from Reclaim app'),
         React.createElement(react.Modal, { isOpen: isOpen, onClose: onClose },
             React.createElement(react.ModalOverlay, null),
             React.createElement(react.ModalContent, null,
-                React.createElement(react.ModalHeader, null, "Modal Title"),
+                React.createElement(react.ModalHeader, null, "Scan QR to import proofs from Reclaim app"),
                 React.createElement(react.ModalCloseButton, null),
                 React.createElement(react.ModalBody, null,
                     React.createElement(QRCode, { value: qrValue }))))));
