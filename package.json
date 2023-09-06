@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/swetshaw"
   },
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -27,5 +27,12 @@
     "rollup-plugin-dts": "^6.0.1",
     "tslib": "^2.6.2",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.0",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "framer-motion": "^10.16.4",
+    "react-qr-code": "^2.0.12"
   }
 }

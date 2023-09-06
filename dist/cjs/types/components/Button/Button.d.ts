@@ -1,6 +1,7 @@
 import React from "react";
 export interface ButtonProps {
-    label: string;
+    webHook: string;
+    label?: string;
 }
-declare const Button: (props: ButtonProps) => React.JSX.Element;
-export default Button;
+declare const ReclaimButton: (props: ButtonProps) => React.JSX.Element;
+export default ReclaimButton;
