@@ -2,6 +2,7 @@ import React from 'react';
 
 interface ButtonProps {
     webHook: string;
+    bgColor?: string;
     isProofsReceived?: boolean;
     label?: string;
 }
