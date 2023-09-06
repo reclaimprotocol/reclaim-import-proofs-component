@@ -14,7 +14,7 @@ var ReclaimButton = function (props) {
         }
     }, [props.isProofsReceived, onClose]);
     return (React.createElement(React.Fragment, null,
-        React.createElement(Button, { bgColor: props.bgColor ? props.bgColor : '#0804ec', onClick: onOpen }, props.label ? props.label : 'Import from Reclaim app'),
+        React.createElement(Button, { textColor: props.textColor ? props.textColor : '#ffffff', bgColor: props.bgColor ? props.bgColor : '#0804ec', onClick: onOpen }, props.label ? props.label : 'Import from Reclaim app'),
         React.createElement(Modal, { isOpen: isOpen, onClose: onClose },
             React.createElement(ModalOverlay, null),
             React.createElement(ModalContent, null,
@@ -23,7 +23,7 @@ var ReclaimButton = function (props) {
                 React.createElement(ModalBody, null,
                     React.createElement(Flex, { alignItems: 'center', gap: 4 },
                         React.createElement(QRCode, { value: qrValue, size: 200 }),
-                        React.createElement(Text, { fontSize: 'lg', fontWeight: 'bold' }, "Scan the QR above to import your Proofs from Reclaim app")))))));
+                        React.createElement(Text, { fontSize: 'lg', fontWeight: 'bold' }, "Scan the QR to import your Proofs from Reclaim app")))))));
 };
 
 export { ReclaimButton as ImportReclaimProofs };

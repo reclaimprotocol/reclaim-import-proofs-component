@@ -5,6 +5,7 @@ import QRCode from "react-qr-code";
 export interface ButtonProps {
     webHook: string;
     bgColor?: string;
+    textColor?: string;
     isProofsReceived?: boolean;
     label?: string;
 }
@@ -24,7 +25,11 @@ const ReclaimButton = (props: ButtonProps) => {
 
     return (
         <>
-            <Button bgColor={props.bgColor ? props.bgColor : '#0804ec'} onClick={onOpen}>{props.label ? props.label : 'Import from Reclaim app'}</Button>
+            <Button
+                textColor={props.textColor ? props.textColor : '#ffffff'}
+                bgColor={props.bgColor ? props.bgColor : '#0804ec'}
+                onClick={onOpen}>{props.label ? props.label : 'Import from Reclaim app'}
+            </Button>
 
             <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
@@ -33,8 +38,8 @@ const ReclaimButton = (props: ButtonProps) => {
                     <ModalCloseButton />
                     <ModalBody>
                         <Flex alignItems='center' gap={4}>
-                        <QRCode value={qrValue} size={200}/>
-                        <Text fontSize='lg' fontWeight='bold'>Scan the QR above to import your Proofs from Reclaim app</Text>
+                            <QRCode value={qrValue} size={200} />
+                            <Text fontSize='lg' fontWeight='bold'>Scan the QR to import your Proofs from Reclaim app</Text>
                         </Flex>
                     </ModalBody>
                 </ModalContent>
