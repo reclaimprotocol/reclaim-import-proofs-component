@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDisclosure, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody } from '@chakra-ui/react';
+import { useDisclosure, Button, Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, Text } from '@chakra-ui/react';
 import QRCode from 'react-qr-code';
 
 var ReclaimButton = function (props) {
@@ -18,10 +18,11 @@ var ReclaimButton = function (props) {
         React.createElement(Modal, { isOpen: isOpen, onClose: onClose },
             React.createElement(ModalOverlay, null),
             React.createElement(ModalContent, null,
-                React.createElement(ModalHeader, null, "Scan QR to import proofs from Reclaim app"),
+                React.createElement(ModalHeader, null, "Import Proofs"),
                 React.createElement(ModalCloseButton, null),
                 React.createElement(ModalBody, null,
-                    React.createElement(QRCode, { value: qrValue }))))));
+                    React.createElement(QRCode, { value: qrValue, size: 200 }),
+                    React.createElement(Text, null, "Scan the QR above to import your Proofs from Reclaim app"))))));
 };
 
 export { ReclaimButton as ImportReclaimProofs };

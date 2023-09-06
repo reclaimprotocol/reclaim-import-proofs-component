@@ -20,10 +20,11 @@ var ReclaimButton = function (props) {
         React.createElement(react.Modal, { isOpen: isOpen, onClose: onClose },
             React.createElement(react.ModalOverlay, null),
             React.createElement(react.ModalContent, null,
-                React.createElement(react.ModalHeader, null, "Scan QR to import proofs from Reclaim app"),
+                React.createElement(react.ModalHeader, null, "Import Proofs"),
                 React.createElement(react.ModalCloseButton, null),
                 React.createElement(react.ModalBody, null,
-                    React.createElement(QRCode, { value: qrValue }))))));
+                    React.createElement(QRCode, { value: qrValue, size: 200 }),
+                    React.createElement(react.Text, null, "Scan the QR above to import your Proofs from Reclaim app"))))));
 };
 
 exports.ImportReclaimProofs = ReclaimButton;
