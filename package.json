@@ -3,13 +3,18 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/swetshaw"
   },
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "scripts": {
     "rollup": "rollup -c"
   },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "types": "dist/index.d.ts",
   "author": "Sweta Shaw",
   "license": "ISC",
   "devDependencies": {
