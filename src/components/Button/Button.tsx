@@ -8,14 +8,16 @@ export interface ButtonProps {
     textColor?: string;
     isProofsReceived?: boolean;
     label?: string;
+    apiKey?: string;
 }
 
 const ReclaimButton = (props: ButtonProps) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const qrValue = JSON.stringify({
-        "type": "import",
-        "webhook": props.webHook
-    })
+    const qrData = encodeURIComponent(JSON.stringify({
+        webHook: props.webHook,
+        apiKey: props.apiKey ? props.apiKey : ''
+    }))
+    const qrValue = `https://share.reclaimprotocol.org/selectLinks/${qrData}`
 
     useEffect(() => {
         if (props.isProofsReceived) {

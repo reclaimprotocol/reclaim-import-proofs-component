@@ -6,10 +6,11 @@ var QRCode = require('react-qr-code');
 
 var ReclaimButton = function (props) {
     var _a = react.useDisclosure(), isOpen = _a.isOpen, onOpen = _a.onOpen, onClose = _a.onClose;
-    var qrValue = JSON.stringify({
-        "type": "import",
-        "webhook": props.webHook
-    });
+    var qrData = encodeURIComponent(JSON.stringify({
+        webHook: props.webHook,
+        apiKey: props.apiKey ? props.apiKey : ''
+    }));
+    var qrValue = "https://share.reclaimprotocol.org/selectLinks/".concat(qrData);
     React.useEffect(function () {
         if (props.isProofsReceived) {
             onClose();
